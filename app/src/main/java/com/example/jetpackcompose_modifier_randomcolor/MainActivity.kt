@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        add(MyPhotoItem(it, photoLink))
+                        add(MyPhotoItem(it, photoLink, Color.random()))
                     }
                 }
 
@@ -87,7 +87,7 @@ fun PhotoItemView(item: MyPhotoItem) {
     ) {
         Row(
             modifier = Modifier
-                .background(color = Color.random()),
+                .background(color = item.color),
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -113,7 +113,8 @@ fun PhotoItemView(item: MyPhotoItem) {
 
 data class MyPhotoItem(
     val idx: Int,
-    val photoLink: String
+    val photoLink: String,
+    val color: Color
 )
 
 // 랜덤 칼라 가져오기
